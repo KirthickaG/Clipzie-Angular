@@ -1,0 +1,42 @@
+<input [formControl]="control" class="form-control" [type]="type" [placeholder]="placeholder" [mask]="format"
+            class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+                duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+            />
+            <ng-container *ngIf="control.touched && control.invalid">
+                <span class="text-red-400" *ngIf="control.errors['required']">
+                    Field Required </span>
+                <span class="text-red-400" *ngIf="control.errors['minlength']">
+                    The value you inputted is {{control.errors['minlength']['actualLength']}}.
+                    It must be {{control.errors['minlength']['requiredLength']}} characters long </span>
+
+                <span class="text-red-400" *ngIf="control.errors['email']">
+                    Enter a valid email 
+                </span>
+                <span class="text-red-400" *ngIf="control.errors['min']">
+                    Value is too low
+                </span>
+                <span class="text-red-400" *ngIf="control.errors['max']">
+                    Value is too high
+                </span>
+                <span class="text-red-400" *ngIf="control.errors['nomatch']">
+                    Passwords do not match
+                </span>
+                <span class="text-red-400" *ngIf="control.errors['emailTaken']">
+                    Email taken. Please try another email
+                </span>
+                <span class="text-red-400" *ngIf="control.errors['pattern']">
+                    Password must be
+                    - at least 8 characters
+                    - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
+                    - Can contain special characters
+                </span>
+
+            </ng-container>
+
+            <!-- <div id="nameErr" *ngIf="this.registerForm.controls['name'].touched && this.registerForm.controls['name'].invalid">
+                <span class="text-red-400" *ngIf="this.registerForm.controls['name'].errors['required']">
+                    Field Required </span>
+                <span class="text-red-400" *ngIf="this.registerForm.controls['name'].errors['minlength']">
+                    The value you inputted is {{this.registerForm.controls['name'].errors['minlength']['actualLength']}}.
+                    It must be {{this.registerForm.controls['name'].errors['minlength']['requiredLength']}} characters long </span>
+            </div> -->
